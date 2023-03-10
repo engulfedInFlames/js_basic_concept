@@ -1,0 +1,19 @@
+1.  Template Literals
+    .1 Document Fragments
+        : ``(backticks)은(는) whitespace도 계산한다.
+        : ``을 사용하여 JS에서 보다 편리하게 HTML 요소를 추가할 수 있다.
+        : JS에서 생성된 Element를 HTML에 개별적으로 추가하는 것보다 DocumentFragment 객체를 생성하여 일괄로 한 번에 추가하는 것이 더 경제적이다.
+    .2 tagFunction
+        // tagFunction`string ${expression} string`
+        : the return value becomes the value of the template literal
+
+2. Methods
+    .1 string.includes(str)
+        : 문자열 포함 여부를 확인한다.
+    .2 string.split(delimiter)
+        : 는 구분자에 따라 나눠진 문자열 배열을 반환한다.
+    .3 string.startsWith(str) & .endsWith(str)
+        :
+    .4 string.repeat(num)
+        : num 만큼 string을 반복 출력한다. Template literals에 응용할 수 있다.
+        ex) To print "**********4xQY"... => $ `${"*".repeat(10)}4xQY`

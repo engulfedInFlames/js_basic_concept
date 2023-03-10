@@ -1,0 +1,40 @@
+1. What is Destructuring?
+    : Object나 Array의 요소들을 바깥으로 꺼내여 변수처럼 사용할 수 있게 하는 것을 의미한다.
+    : Object, Array, Function 등 객체를 반환한다면 Destructuring 할 수 있다.
+    : ":"을 이용하여 Renaming 할 수 있고, "="을 이용하여 default value를 지정할 수 있다.
+
+2. Object Destructuring
+    // const styled = {
+    //   theme: {
+    //     color: "black",
+    //     fontSize: 18,
+    //   },
+    // };
+    //
+    // const {
+    //   theme: { color: fontColor },
+    // } = styled;
+    // 
+    // let fontSize = 12;
+    // ({
+    //   theme: { fontSize = 16 },
+    // } = styled);
+    // console.log(`font-size: ${fontSize}, font-color: ${fontColor}`);
+
+3. Array Destructuring
+    // const dayList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    // const [e0, e1, e2, e3, e4, e5, e6, e7 = "newDay"] = dayList;
+    // console.log(e0, e1, e2, e3, e4, e5, e6, e7);
+
+4. Swapping & Skipping
+    .1 Swapping
+        // let a = "c";
+        // let b = "a";
+        // let c = "b";
+        // [a, b, c] = [b, c, a]; 
+        // console.log(a, b, c);
+
+    .2 Skipping
+        // const dayList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        // const [,,,,,a,b]=dayList;
+        // console.log(a, b);

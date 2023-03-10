@@ -1,0 +1,85 @@
+1. How To Use Class?
+    .1 ex)
+    // class User {
+    //   constructor({ realname, age, sex, birthdate }) {
+    //     this.realname = realname;
+    //     this.age = age;
+    //     this.sex = sex;
+    //     this.birthdate = birthdate;
+    //   }
+    //   printProfile() {
+    //     console.log(
+    //       `name: ${this.realname}, age: ${this.age}, sex: ${
+    //         this.sex === 1 ? "male" : "female"
+    //       }, birthdate: ${this.birthdate} `
+    //     );
+    //   }
+    // }
+    // const Tilda = new User({
+    //   realname: "Tilda",
+    //   age: 26,
+    //   sex: 0,
+    //   birthdate: "19970427",
+    // });
+    // Tilda.printProfile();
+
+    // class Staff extends User {
+    //   constructor({ realname, age, sex, birthdate, isStaff }) {
+    //     super({ realname, age, sex, birthdate });
+    //     this.isStaff = isStaff;
+    //   }
+    //   controller() {
+    //     console.log(`${this.realname} is controlling Something...`);
+    //   }
+    // }
+
+    // const Jacky = new Staff(
+    //   { realname: "Jacky", age: 32, sex: 1, birthdate: "19911004" },
+    //   true
+    // );
+    // Jacky.printProfile();
+    // Jacky.controller();
+
+    .2 ex)
+    // class Counter {
+    //   constructor({
+    //     initCount = 0,
+    //     numberClassname,
+    //     plusClassname,
+    //     minusClassname,
+    //     resetClassname,
+    //   }) {
+    //     this.count = this.resetCount = initCount;
+    //     this.number = document.querySelector(numberClassname);
+    //     this.number.innerText = this.count;
+    //     this.plusBtn = document.querySelector(plusClassname);
+    //     this.minusBtn = document.querySelector(minusClassname);
+    //     this.resetBtn = document.querySelector(resetClassname);
+    //     this.addEventlisteners();
+    //   }
+    //   addEventlisteners() {
+    //     this.plusBtn.addEventListener("click", this.increase);
+    //     this.minusBtn.addEventListener("click", this.decrease);
+    //     this.resetBtn.addEventListener("click", this.reset);
+    //   }
+    //   increase = () => {
+    //     this.count = this.count + 1;
+    //     this.number.innerText = this.count;
+    //   };
+    //   decrease = () => {
+    //     if(this.count < 0 )
+    //     this.count = this.count - 1;
+    //     this.number.innerText = this.count;
+    //   };
+    //   reset = () => {
+    //     this.count = this.resetCount;
+    //     this.number.innerText = this.count;
+    //   };
+    // }
+
+    // const counter = new Counter({
+    //   numberClassname: ".counter__number",
+    //   plusClassname: ".counter__plusBtn",
+    //   minusClassname: ".counter__minusBtn",
+    //   resetClassname: ".counter__resetBtn",
+    // });

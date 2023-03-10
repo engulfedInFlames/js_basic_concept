@@ -1,0 +1,52 @@
+1. ?? (Nullish Coalescing Operator)
+    // const realName = 0;
+    // console.log("Hello", realName || "Anonymous"); // true or false로 판단
+    // console.log("Hello", realName ?? "Anonymous"); // null, undefined인지 아닌지로 판단
+
+2. Optional Chaining
+    : 어떤 객체가 특정 property를 가지고 있는지 확신할 수 없을 때 사용하면 좋다.
+    // console.log(user.info?.email?.provider?.name);
+    // console.log(user.info && user.info.email && user.info.email.provider && user.info.email.provider.name);
+
+3. String.padStart() & String.padEnd()
+    : 원본 값을 변경하지 않는다.
+    .1 ex)
+    // const currentTime = {
+    //   h: 13,
+    //   m: 4,
+    //   s: 7,
+    // };
+    // const convert = (arg, endLetter) => {
+    //   return `${String(arg).padStart(2, "0").padEnd(3, endLetter)}`;
+    // };
+    // console.log(
+    //   `${convert(currentTime.h, "h")}:${convert(currentTime.m, "m")}:${convert(currentTime.s, "s")}`
+    // );
+
+4. String.trim() & String.trimStart() & String.trimEnd()
+    : Whitespace를 제거한다. 원본 값을 변경하지 않는다.
+
+5. Object.keys() & Object.values() & Object.entries() & Object.fromEntries()
+    .1 Object.keys()
+    : Object의 key 값을 원소로 갖는 배열을 반환
+
+    .2 Object.values()
+    : Object의 value 값을 원소로 갖는 배열을 반환
+
+    .3 Object.entries()
+    : Object의 key-value 쌍을 원소르 갖는 배열들의 배열을 반환
+
+    .4 Object.fromEntries()
+    : Object.entries()의 반환값과 같은 형태의 data를 온전한 Object type으로 변환하여 반환
+
+6. Array
+    .1 flat(depth) 💕
+    : 중층 구조의 배열 속 하위 배열 요소를 지정한 깊이까지 재귀적으로 이어붙인(평탄화) 새로운 배열을 반환 
+    
+    .2 sort([compareFunction]) 💕
+    : 원본 배열이 정렬된다. compareFunction으로 객체의 key나 value로도 배열을 정렬할 수 있다.
+    
+
+8. Promise allSettled
+
+

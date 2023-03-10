@@ -1,0 +1,93 @@
+0.
+    : 멀티 태스킹은 여러 일들을 빠르게 스위칭하는 것 뿐
+    : 컴퓨터, JS는 동시에 여러 일들을 할 수 있다. (비동기)
+    : 비동기 처리를 동기적 처리를 실행하고자 할 때 Promise 객체가 유용하다.
+
+1. Promise
+    : 생성된 시점에는 알려지지 않았을 수도 있는 값을 위한 대리지앋.
+    : Promise 객체를 사용하면 비동기 메소드에서 마치 동기 메소드처럼 값이나 오류를 반환할 수 있다.
+    : 다음 셋 중 하나의 상태를 갖는다.(Fulfilled, Rejected, Pending)
+
+2. How To Use Promises?
+    .1
+    // const pm = new Promise((rs, rj) => {
+    //   setTimeout(rs, 3000, 999);
+    // });
+    // setInterval(() => console.log(pm), 1000); // 3초 뒤에 결과 값이 어떻게 바뀌는지 확인
+    
+    .2 Promises Chaining
+    // const addOne = (number) => {
+    //   console.log("Add 1", number);
+    //   return number + 1;
+    // };
+    // pm.then(console.log("A promise created!"))
+    //   .then(addOne)
+    //   .then(addOne)
+    //   .then(addOne)
+    //   // .then(() => {
+    //   //   throw Error("Something is Wrong");
+    //   // }) // Error를 throw하면 그 이후의 then은 실행되지 않는다.
+    //   .then(addOne)
+    //   .then(console.log)
+    //   .catch(console.log);
+
+    .3 .all(iterable)
+    e.g. const parentPm = new Promise([childPm1, childPm2, childPm3])
+    : 모든 pm가 이행되거나, 한 pm가 거부될 때까지 대기하는 새로운 pm을 반환한다.
+
+    .4 .allSettled(iterable)
+    : Promise.all()은 하나라도 거부되면 다른 pm의 처리를 중단한다. 그러나 Promise.allSettled()는 모든 pm을 반환하고,
+    각 pm의 status와 value나 reason을 함께 반환한다. 즉, status에 따라 다른 처리를 하도록 코드를 구현하면 좋다.
+    // const p1 = new Promise((rs) => {
+    //   setTimeout(() => {
+    //     rs(100);
+    //   }, 3000);
+    // });
+    // const p2 = new Promise((rs) => {
+    //   setTimeout(() => {
+    //     rs(200);
+    //   }, 5000);
+    // });
+    // const p3 = new Promise((rs) => {
+    //   setTimeout(() => {
+    //     rs(300);
+    //   }, 1000);
+    // });
+    // const p4 = new Promise((rs, rj) => {
+    //   rj(new Error("This is error."));
+    // });
+
+    // Promise.allSettled([p1, p2, p3, p4]).then((results) =>
+    //   results.forEach(console.log)
+    // );
+
+    .5 .any()
+    : This returned promise fulfills when any of the input's promises fulfills, with this first fulfillment value.
+
+    .6 .race(iterable)
+    : 구현은 Promise.all()과 같으나, 하나라도 처리(settled)되기를 기다리는 새로운 pm을 반환한다.
+    : 가장 먼저 처리된 pm의 값을 이행(혹은 거부)한다.
+    * settled는 fulfilled 또는 rejected 됐을 경우를 모두 포함한다.
+    
+    .7 .finally()
+    : Promise가 settled되면 이행 여부와 상관없이 callback을 호출한다. Promise의 최종값에 변화를 주지 않는다.
+    e.g. "Promise.resolve(2).finally(() => 77)" returns a promise eventually fulfilled with the value 2.
+    e.g. Similarly, "Promise.reject(3).finally(() => 88)" returns a promise eventually rejected with the reason 3
+    // const sendMail = () => {
+    //   return new Promise((rs, rj) => {
+    //     if (Math.random() > 0.5) {
+    //       rs("Sended message. ✅");
+    //     } else {
+    //       rj("Failed to send message. ❌");
+    //     }
+    //   });
+    // };
+    // sendMail()
+    //   .then(console.log)
+    //   .catch(console.log)
+    //   .finally(console.log("'Send Mail' settled."));
+
+    .8 then(onFulfilled, onRejected)
+    : then은 각각 이행됐을 때, 거부됐을 때를 다루는 handler 두 개를 인자로 받는다. 
+    
+3. Async & Await

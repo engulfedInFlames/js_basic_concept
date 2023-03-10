@@ -1,0 +1,97 @@
+1. Logical Assignment Operators
+    .1 Logical OR assignment (||=)
+    : The logical OR assignment (x ||= y) operator only assigns if x is falsy.
+    : Useful to set default content.
+    * falsy: null, undefined, false, 0, NaN, ""...
+
+    .2 Logical AND assignment (&&=)
+    : The logical AND assignment (x &&= y) operator only assigns if x is truthy.
+
+    .3 Nullish coalescing assignment (??=)
+    : The logical null assignment (x &&= y) operator only assigns if x is Nullish(null or undefined).
+
+ex)
+const user = {
+  username: "flame",
+  password: "1234",
+  isAdmin: false,
+};
+user.password &&= "[inaccessible]";
+user.age ||= 25;
+user.isAdmin ??= true;
+console.log(user);
+user.isAdmin = null;
+user.isAdmin ??= true;
+console.log(user);
+    
+2. String.prototype.replaceAll()
+: The replaceAll() method ✨returns a new string✨ with all matches of a pattern replaced by a replacement
+
+3. Array.prototype.at()
+: Returns the item at that index, allowing for negative integers like python.
+
+4. Object.hasOwn(object, property) 
+: ✨ Recommended
+: True if the specified object has directly defined the specified property. Otherwise false
+: Similar with 'Object.prototype.hasOwnProperty()', 'prop in object'
+
+5. Error.prototype.cause
+: The cause data property of an Error instance indicates the specific original cause of the error.
+ex)
+try {
+  connectToDatabase();
+} catch (err) {
+  throw new Error('Connecting to database failed.', { cause: err });
+}
+
+6. Class
+    .1 Class Field Declarations
+    e.g. constructor() {this.count = 0;} => count = 0;
+
+    .2 Private Methods and Fields
+    : use "#"
+
+    .3 Static Methods and Fields
+
+ex)
+class Counter {
+  // Vars
+  static descrip = "Count up to five.";
+  static #easterEgg = "Boom!!!";
+  #count = 0;
+
+  // Methods
+  static isMyChild(instance) {
+    return instance instanceof Counter;
+  }
+  get get() {
+    return this.#count;
+  }
+  plus() {
+    if (this.#count >= 5) {
+      return this.#reset();
+    }
+    this.#count++;
+  }
+  #reset() {
+    this.#count = 0;
+  }
+}
+const c = new Counter();
+// Private
+// console.log(c.#count); ❌
+console.log(c.get);
+c.plus();
+c.plus();
+c.plus();
+c.plus();
+c.plus();
+c.plus();
+console.log(c.get);
+
+// Static
+// console.log(Counter.#easterEgg); ❌
+// console.log(c.descrip); => undefined ❌
+console.log(Counter.descrip);
+console.log(Counter.isMyChild(c));
+

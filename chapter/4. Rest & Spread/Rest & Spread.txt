@@ -1,0 +1,91 @@
+1. What is spread?
+    : Spread는 elements를 unpack한다.
+    
+    .1 Example of Spread
+        // const numList = [1, 2, 3, 4, 5];
+        // const alphaList = ["a", "b", "c", "d"];
+        // const newList = [...numList, ...alphaList];
+        // // console.log(alphaList, newList) => Array 객체 두 개를 반환할 뿐
+        // console.log(newList);
+        // 
+        // const alphaObj = {
+        //   a: "A",
+        //   b: "B",
+        //   c: "C",
+        // };
+        // const numObj = {
+        //   one: 1,
+        //   two: 2,
+        //   three: 3,
+        // };
+        // const newObj = {
+        //   ...alphaObj,
+        //   ...numObj,
+        // };
+        // console.log(newObj);
+
+
+    .2 Add Elements
+        // const e = prompt("Please, type capital letter 'E'");
+        // const newAlphaObj = {
+        //   ...alphaObj,
+        //   d: "D",
+        //   ...(e === "E" && { e }),
+        // };
+        // const newAlphaObjForComparing = {
+        //   ...alphaObj,
+        //   d: "D",
+        //   e: e === "E" ? e : undefined,
+        // };
+        // console.log(newAlphaObj);
+        // console.log(newAlphaObjForComparing);
+
+2. What is rest?
+    : rest는 elements를 pack한다.
+
+    .1 Example of rest
+    // const makeFriendsList = (bestFriend, ...rest) => {
+    //   console.log(rest);
+    //   console.log(
+    //     `My best friend is ${bestFriend}. Also, ${rest.join(", ")}, they are my friends.`
+    //   );
+    // };
+    // makeFriendsList("Lewis", "Capaldi", "Ajr", "Camila", "Billy");
+
+    .2 Practical Uses of rest
+    // const aConfig = {
+    //   include: ["src/*"],
+    //   outDir: "dest",
+    //   setA: "a",
+    //   setB: "b",
+    // };
+    // let newConfig;
+    // const deleteSomething = ({ setB, ...rest }) => rest;
+    // newConfig = deleteSomething(aConfig);
+    // console.log(newConfig);
+    //
+    // const addSomething = ({ setC = "c", ...rest }) => ({ setC, ...rest }); // 중괄호를 쓰게 되면 반드시 return 해야 한다. 단순히 객체를 return 하고 싶을 때는 소괄호를 반드시 사용할 것
+    // newConfig = addSomething(aConfig);
+    // console.log(newConfig);
+    //
+    // const renameSomething = ({ include: watch, ...rest }) => ({ watch, ...rest });
+    // newConfig = renameSomething(aConfig);
+    // console.log(newConfig);
+
+3. for of loop (Appendix)
+    .1 Array.forEach(value, index, currentArray)
+    // const strList = ["One", "Two", "Three", "Four", "Five"];
+    // const consoleLog = (value, index, currentArray) =>
+    // console.log(value, index, currentArray);
+    // strList.forEach(consoleLog); // You can't do "break" from the loop, and only you can use forEach method for Array.
+
+    .2 for (...of)
+    : 인자로는 Array 뿐만 아니라 iterable object, nodeList, string 등 유사 배열 객체가 올 수 있다.
+    // const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+    // for (const weekday of weekdays) {
+    //   if (weekday === "Thu") {
+    //     break;
+    //   } else {
+    //     console.log(weekday);
+    //   }
+    // }
